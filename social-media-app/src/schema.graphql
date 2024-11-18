@@ -1,0 +1,29 @@
+type User {
+  id: ID!
+  email: String!
+  displayName: String!
+  posts: [Post!]!
+  createdAt: String!
+}
+
+type Post {
+  id: ID!
+  content: String!
+  user: User!
+  createdAt: String!
+}
+
+type Query {
+  me: User
+  user(id: ID!): User
+  users: [User!]!
+  posts: [Post!]!
+  post(id: ID!): Post
+}
+
+type Mutation {
+  createPost(content: String!): Post!
+  updatePost(id: ID!, content: String!): Post!
+  deletePost(id: ID!): Boolean!
+  updateProfile(displayName: String!): User!
+}

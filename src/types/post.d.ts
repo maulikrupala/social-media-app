@@ -4,4 +4,5 @@ export type Post = {
   content: string
   created_at: Date
   user_id: string
+  images: string
 }

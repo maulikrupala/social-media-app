@@ -24,13 +24,13 @@ export default function SignUp() {
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6">Sign Up</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-md mx-auto bg-white p-8 rounded-lg">
+      <h2 className="text-4xl font-bold text-center mb-8">Sign Up</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label
             htmlFor="displayName"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Display Name
           </label>
@@ -40,13 +40,13 @@ export default function SignUp() {
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
           />
         </div>
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Email
           </label>
@@ -56,13 +56,13 @@ export default function SignUp() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
           />
         </div>
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Password
           </label>
@@ -72,20 +72,23 @@ export default function SignUp() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition"
+          className="w-full bg-[#6366F1] text-white py-3 px-4 rounded-md hover:bg-[#5558E3] transition duration-300"
         >
           Sign Up
         </button>
       </form>
-      <p className="mt-4 text-center">
+      <p className="mt-6 text-center text-base">
         Already have an account?{" "}
-        <Link to="/login" className="text-indigo-600 hover:text-indigo-800">
+        <Link
+          to="/login"
+          className="text-[#6366F1] hover:text-[#5558E3] hover:underline"
+        >
           Log In
         </Link>
       </p>

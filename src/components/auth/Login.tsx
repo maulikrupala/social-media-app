@@ -18,13 +18,13 @@ export default function Login() {
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6">Log In</h2>
+    <div className="max-w-md mx-auto bg-white p-8 rounded-lg shadow-sm">
+      <h2 className="text-4xl font-bold text-center mb-6">Log In</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 mb-1"
           >
             Email
           </label>
@@ -34,13 +34,14 @@ export default function Login() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
+            placeholder="Enter Email"
           />
         </div>
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium text-gray-700 mb-1"
           >
             Password
           </label>
@@ -50,20 +51,21 @@ export default function Login() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
+            placeholder="Enter password"
           />
         </div>
         {error && <p className="text-red-500 text-sm">{error}</p>}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition"
+          className="w-full bg-[#6366F1] text-white py-2 px-4 rounded-md hover:bg-[#5558E3] transition duration-300"
         >
           Log In
         </button>
       </form>
-      <p className="mt-4 text-center">
-        Don't have an account?{" "}
-        <Link to="/signup" className="text-indigo-600 hover:text-indigo-800">
+      <p className="mt-4 text-center text-sm">
+        Don&apos;t have an account?{" "}
+        <Link to="/signup" className="text-[#6366F1] hover:underline" >
           Sign Up
         </Link>
       </p>

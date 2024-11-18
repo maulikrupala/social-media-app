@@ -60,13 +60,13 @@ export default function CreatePost({ user }: CreatePostProps) {
   };
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold mb-4">Create a New Post</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg">
+      <h2 className="text-4xl font-bold mb-8">Create a New Post</h2>
+      <form onSubmit={handleSubmit} className="space-y-6">
         <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Title
           </label>
@@ -76,14 +76,14 @@ export default function CreatePost({ user }: CreatePostProps) {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
             placeholder="Enter a title for your post"
           />
         </div>
         <div>
           <label
             htmlFor="content"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Content
           </label>
@@ -93,14 +93,14 @@ export default function CreatePost({ user }: CreatePostProps) {
             onChange={(e) => setContent(e.target.value)}
             required
             rows={4}
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+            className="w-full px-4 py-3 rounded-md border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#6366F1]"
             placeholder="What's on your mind?"
           ></textarea>
         </div>
         <div>
           <label
             htmlFor="image"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-lg font-medium text-gray-700 mb-2"
           >
             Upload Image
           </label>
@@ -109,16 +109,21 @@ export default function CreatePost({ user }: CreatePostProps) {
             type="file"
             accept="image/*"
             onChange={(e) => setImage(e.target.files?.[0] || null)}
-            className="mt-1 block w-full"
+            className="block w-full text-sm text-gray-500
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-md file:border-0
+              file:text-sm file:font-medium
+              file:bg-gray-50 file:text-gray-700
+              hover:file:bg-gray-100"
           />
         </div>
         {error && <p className="text-red-500 text-sm">Error: {error}</p>}
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition disabled:opacity-50"
+          className="w-full bg-[#6366F1] text-white py-3 px-4 rounded-md hover:bg-[#5558E3] transition duration-300 disabled:opacity-50"
         >
-          {loading ? "Posting..." : "Create Post"}
+          {loading ? "Creating..." : "Create Post"}
         </button>
       </form>
     </div>

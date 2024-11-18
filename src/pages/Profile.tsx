@@ -42,13 +42,13 @@ export default function Profile({ user }: ProfileProps) {
       </div>
       <h3 className="text-xl font-semibold mb-4">Posts</h3>
       <div className="space-y-6">
-        {profile?.posts?.map((post: any) => (
+        {/* {profile?.posts?.map((post: any) => (
           <PostCard
             key={post.id}
             post={{ ...post, user: profile }}
             currentUser={user}
           />
-        ))}
+        ))} */}
       </div>
     </div>
   );

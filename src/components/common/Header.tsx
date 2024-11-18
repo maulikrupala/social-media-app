@@ -22,12 +22,11 @@ export default function Header({ user }: HeaderProps) {
             >
               Create Post
             </Link>
-            <Link
-              to={`/profile/${user.id}`}
+            <div
               className="text-gray-600 hover:text-indigo-600 transition"
             >
               {user.displayName || user.email}
-            </Link>
+            </div>
             <button
               onClick={() => auth.signOut()}
               className="text-red-600 hover:text-red-700 transition"

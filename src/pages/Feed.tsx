@@ -14,30 +14,30 @@ export default function Feed({ user }: FeedProps) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
+  const fetchData = async () => {
+    setLoading(true);
 
-      try {
-        // Fetch data from the "posts" table
-        const { data, error } = await supabase.from("posts").select("*");
+    try {
+      // Fetch data from the "posts" table
+      const { data, error } = await supabase.from("posts").select("*");
 
-        if (error) {
-          throw error; // Handle error
-        }
-
-        setData(data); // Update state with fetched data
-      } catch (err: any) {
-        setError(err.message); // Capture and set error
-      } finally {
-        setLoading(false); // Stop loading
+      if (error) {
+        throw error; // Handle error
       }
-    };
 
+      setData(data); // Update state with fetched data
+    } catch (err: any) {
+      setError(err.message); // Capture and set error
+    } finally {
+      setLoading(false); // Stop loading
+    }
+  };
+  useEffect(() => {
     fetchData();
   }, []); // Empty dependency array to run on component mount
 
   if (loading) return <p className="text-center">Loading...</p>;
+  if (data?.length === 0) return <p className="text-center text-gray-400">No Post Available</p>;
   if (error)
     return <p className="text-center text-red-500">Error: {error.message}</p>;
 
@@ -47,8 +47,9 @@ export default function Feed({ user }: FeedProps) {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {data &&
         data?.map((post: Post) => (
-          <PostCard key={post?.id} post={post} currentUser={user} />
+          <PostCard key={post?.id} post={post} currentUser={user} fetchPost={fetchData} />
         ))}
+      {data?.length === 0 && <p className="text-center">No Post Available</p>}
     </div>
   );
 }
